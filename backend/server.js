@@ -7,7 +7,6 @@ const fs = require("fs");
 
 const { GoogleGenAI } = require("@google/genai");
 const { checkCompliance } = require("./compliance");
-const { analyzeFontSize, getImageSize } = require("./fontSize");
 
 const app = express();
 
@@ -77,12 +76,6 @@ async function extractProductInfoWithGemini(
 
     const imageBytes =
         fs.readFileSync(imagePath);
-
-    const imageSize =
-        getImageSize(
-            imageBytes,
-            mimeType
-        );
 
     const base64Image =
         imageBytes.toString("base64");
@@ -175,33 +168,6 @@ IMPORTANT RULES:
     areas containing dates, batch numbers,
     MRP and licence numbers.
 
-Also measure letter/numeral size for Legal
-Metrology Rule 7.
-
-For fontAnalysis, use NORMALISED coordinates
-between 0 and 1 relative to the full image
-(x, y, width, height).
-
-CRITICAL for font boxes:
-- Box a SINGLE typical numeral or capital
-  letter of that declaration, not the whole
-  sentence or paragraph.
-- Prefer a digit from MRP and a digit from
-  net quantity.
-- The box height must tightly match the
-  printed character height.
-
-principalDisplayPanel should tightly cover
-the main labelled face visible in the photo.
-If the whole image is that face, use
-x=0, y=0, width=1, height=1.
-
-readability must be one of:
-clear, poor, unreadable.
-
-If a declaration is not visible, set that
-region width and height to 0.
-
 Return ONLY JSON.
 
 {
@@ -214,31 +180,6 @@ Return ONLY JSON.
   "manufacturer": "",
   "fssaiLicense": "",
   "customerCare": "",
-  "fontAnalysis": {
-    "principalDisplayPanel": {
-      "x": 0, "y": 0, "width": 1, "height": 1
-    },
-    "mrp": {
-      "x": 0, "y": 0, "width": 0, "height": 0,
-      "readability": "clear"
-    },
-    "netQuantity": {
-      "x": 0, "y": 0, "width": 0, "height": 0,
-      "readability": "clear"
-    },
-    "manufacturingDate": {
-      "x": 0, "y": 0, "width": 0, "height": 0,
-      "readability": "clear"
-    },
-    "manufacturer": {
-      "x": 0, "y": 0, "width": 0, "height": 0,
-      "readability": "clear"
-    },
-    "customerCare": {
-      "x": 0, "y": 0, "width": 0, "height": 0,
-      "readability": "clear"
-    }
-  }
 }
 
 An empty string means the information was
@@ -326,10 +267,6 @@ not clearly visible in the image.
                                 customerCare: {
                                     type: "string"
                                 },
-
-                                fontAnalysis: {
-                                    type: "object"
-                                }
 
                             },
 
@@ -460,12 +397,6 @@ not clearly visible in the image.
     ];
 
 
-    const fontAnalysis =
-        productInfo.fontAnalysis || {};
-
-    delete productInfo.fontAnalysis;
-
-
     for (const field of requiredFields) {
 
         if (
@@ -491,19 +422,11 @@ not clearly visible in the image.
 
     console.log(productInfo);
 
-    console.log("Font regions:");
-    console.log(fontAnalysis);
-
-    console.log("Image size:");
-    console.log(imageSize);
-
     console.log("---------------------------------");
 
 
     return {
-        productInfo,
-        fontAnalysis,
-        imageSize
+        productInfo
     };
 
 }
@@ -627,52 +550,6 @@ app.post(
             const productInfo =
                 extraction.productInfo;
 
-            const fontAnalysis =
-                extraction.fontAnalysis;
-
-            const imageSize =
-                extraction.imageSize || {
-                    width: 0,
-                    height: 0
-                };
-
-
-            const faceWidthCm =
-                req.body && req.body.faceWidthCm;
-
-            const faceHeightCm =
-                req.body && req.body.faceHeightCm;
-
-            const molded =
-                req.body &&
-                String(req.body.molded)
-                    .toLowerCase() === "true";
-
-
-            // ==================================
-            // STEP 2
-            // RULE 7 FONT SIZE
-            // ==================================
-
-            console.log("");
-            console.log(
-                "STEP 2: RULE 7 FONT SIZE"
-            );
-
-
-            const fontSize =
-                analyzeFontSize({
-                    fontAnalysis,
-                    faceWidthCm,
-                    faceHeightCm,
-                    molded,
-                    imageWidth: imageSize.width,
-                    imageHeight: imageSize.height
-                });
-
-
-            console.log(fontSize);
-
 
             // ==================================
             // STEP 3
@@ -687,8 +564,7 @@ app.post(
 
             const compliance =
                 checkCompliance(
-                    productInfo,
-                    fontSize
+                    productInfo
                 );
 
 
@@ -738,10 +614,6 @@ app.post(
 
                 productInfo:
                     productInfo,
-
-
-                fontSize:
-                    fontSize,
 
 
                 compliance:

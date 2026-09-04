@@ -12,10 +12,6 @@ const fileInput = document.getElementById("fileInput");
 const fileName = document.getElementById("fileName");
 const uploadBox = document.getElementById("uploadBox");
 const mockResult = document.getElementById("mockResult");
-const faceWidthCmInput = document.getElementById("faceWidthCm");
-const faceHeightCmInput = document.getElementById("faceHeightCm");
-const moldedLettersInput = document.getElementById("moldedLetters");
-const scalePresets = document.getElementById("scalePresets");
 
 let lastScanFile = null;
 
@@ -153,48 +149,6 @@ function getStatusClass(status) {
 }
 
 
-function getScaleInputs() {
-
-  return {
-    faceWidthCm: faceWidthCmInput
-      ? faceWidthCmInput.value
-      : "",
-    faceHeightCm: faceHeightCmInput
-      ? faceHeightCmInput.value
-      : "",
-    molded: Boolean(
-      moldedLettersInput &&
-      moldedLettersInput.checked
-    )
-  };
-
-}
-
-
-if (scalePresets) {
-
-  scalePresets.addEventListener("click", (event) => {
-
-    const button = event.target.closest("button[data-cm]");
-
-    if (!button || !faceWidthCmInput) {
-      return;
-    }
-
-    faceWidthCmInput.value = button.dataset.cm;
-
-    scalePresets
-      .querySelectorAll("button")
-      .forEach((item) => {
-        item.classList.toggle(
-          "active",
-          item === button
-        );
-      });
-
-  });
-
-}
 
 
 // ==========================================
@@ -1102,9 +1056,6 @@ function displayInspectionResult(data) {
         </div>
 
       </div>
-
-
-      ${buildFontSizeSection(data.fontSize)}
 
 
       <div class="inspection-section">

@@ -1,4 +1,4 @@
-function checkCompliance(productInfo, fontSize) {
+function checkCompliance(productInfo) {
     const checks = [];
 
     // MRP
@@ -80,21 +80,7 @@ function checkCompliance(productInfo, fontSize) {
             ? "Customer-care information detected"
             : "Customer-care information could not be detected"
     });
-
     // Count results
-    if (fontSize && Array.isArray(fontSize.measurements)) {
-        fontSize.measurements.forEach((item) => {
-            checks.push({
-                field: `Font size — ${item.label}`,
-                value: item.estimatedHeightMm != null
-                    ? `${item.estimatedHeightMm} mm`
-                    : null,
-                status: item.status,
-                rule: item.rule,
-                message: item.message
-            });
-        });
-    }
 
     const passed = checks.filter(
         check => check.status === "PASS"
