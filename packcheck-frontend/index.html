@@ -3,22 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>PackCheck — Compliance Made Simple</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+
+  <!-- ================================
+       NAVBAR
+  ================================= -->
+
   <header class="navbar">
+
     <div class="brand">
+
       <div class="brand-icon">✓</div>
+
       <div>
-        <div class="brand-name">Pack<span>Check</span></div>
-        <div class="brand-tagline">Compliance made simple</div>
+        <div class="brand-name">
+          Pack<span>Check</span>
+        </div>
+
+        <div class="brand-tagline">
+          Compliance made simple
+        </div>
       </div>
+
     </div>
+
 
     <nav>
       <a class="active" href="#home">Home</a>
@@ -29,179 +51,581 @@
       <a href="#about">About</a>
     </nav>
 
-    <button class="login-btn" onclick="showLogin()">Inspector Login <span>♙</span></button>
+
+    <button class="login-btn" onclick="showLogin()">
+      Inspector Login <span>♙</span>
+    </button>
+
   </header>
 
-  <main id="home">
-    <section class="hero">
-      <div class="hero-copy">
-        <div class="eyebrow">✦ AI-Powered Compliance Inspector</div>
 
-        <h1>Scan. Check.<br>Stay <span>Compliant.</span></h1>
+  <main id="home">
+
+    <!-- ================================
+         HERO
+    ================================= -->
+
+    <section class="hero">
+
+      <div class="hero-copy">
+
+        <div class="eyebrow">
+          ✦ AI-Powered Compliance Inspector
+        </div>
+
+        <h1>
+          Scan. Check.<br>
+          Stay <span>Compliant.</span>
+        </h1>
 
         <p>
-          PackCheck uses AI and OCR technology to automatically extract product
+          PackCheck uses AI vision to automatically extract product
           information, verify mandatory declarations, and help inspectors
           identify potential compliance gaps.
         </p>
 
+
         <div class="hero-buttons">
-          <button class="primary-btn" onclick="scrollToSection('scan')">
-            <span>⇧</span> Scan Product Now
+
+          <button
+            class="primary-btn"
+            onclick="scrollToSection('scan')"
+          >
+            <span>⇧</span>
+            Scan Product Now
           </button>
-          <button class="secondary-btn" onclick="scrollToSection('dashboard')">
-            <span>▥</span> View Dashboard
+
+
+          <button
+            class="secondary-btn"
+            onclick="scrollToSection('dashboard')"
+          >
+            <span>▥</span>
+            View Dashboard
           </button>
+
         </div>
 
+
         <div class="features">
-          <div class="feature">
-            <div class="feature-icon">⌾</div>
-            <div>
-              <strong>Accurate OCR</strong>
-              <small>Extracts text from packaging</small>
-            </div>
-          </div>
 
           <div class="feature">
-            <div class="feature-icon">✓</div>
+
+            <div class="feature-icon">
+              ◉
+            </div>
+
+            <div>
+              <strong>AI Vision</strong>
+              <small>Reads product packaging</small>
+            </div>
+
+          </div>
+
+
+          <div class="feature">
+
+            <div class="feature-icon">
+              ✓
+            </div>
+
             <div>
               <strong>Smart Compliance</strong>
               <small>Checks required declarations</small>
             </div>
+
           </div>
+
 
           <div class="feature">
-            <div class="feature-icon">▤</div>
+
+            <div class="feature-icon">
+              ▤
+            </div>
+
             <div>
               <strong>Detailed Reports</strong>
-              <small>Clear inspection reports</small>
+              <small>Clear inspection results</small>
             </div>
+
           </div>
+
         </div>
+
       </div>
+
+
+      <!-- ================================
+           HERO VISUAL
+      ================================= -->
 
       <div class="hero-visual">
+
         <div class="scan-card">
-          <div class="scan-badge">✓ &nbsp; AI Compliance Check</div>
 
-          <div class="product-stage">
-            <div class="scan-corners"></div>
-            <div class="product-package">
-              <div class="package-logo">Nature</div>
-              <div class="package-sub">CRISPS</div>
-              <div class="package-flavor">Cream & Onion</div>
-              <div class="chips">🥔</div>
-              <div class="package-weight">60 g</div>
-            </div>
-
-            <div class="details-card">
-              <div class="detail"><span>☑</span><div><small>Product Name</small><b>Nature Crisps</b></div><i>✓</i></div>
-              <div class="detail"><span>▣</span><div><small>Net Quantity</small><b>60 g</b></div><i>✓</i></div>
-              <div class="detail"><span>₹</span><div><small>MRP</small><b>₹ 20.00</b></div><i>✓</i></div>
-              <div class="detail"><span>▣</span><div><small>Mfg. Date</small><b>12/05/2026</b></div><i>✓</i></div>
-              <div class="detail"><span>◷</span><div><small>Best Before</small><b>12/05/2027</b></div><i>✓</i></div>
-              <div class="detail"><span>♙</span><div><small>Manufacturer</small><b>Green Foods Pvt. Ltd.</b></div><i>✓</i></div>
-              <div class="detail"><span>☎</span><div><small>Customer Care</small><b>1800-123-4567</b></div><i>✓</i></div>
-            </div>
+          <div class="scan-badge">
+            ✓ &nbsp; AI Compliance Check
           </div>
 
-          <div class="status">✓ &nbsp; Overall Status: COMPLIANT</div>
+
+          <div class="product-stage">
+
+            <div class="scan-corners"></div>
+
+
+            <div class="product-package">
+
+              <div class="package-logo">
+                Nature
+              </div>
+
+              <div class="package-sub">
+                CRISPS
+              </div>
+
+              <div class="package-flavor">
+                Cream & Onion
+              </div>
+
+              <div class="chips">
+                🥔
+              </div>
+
+              <div class="package-weight">
+                60 g
+              </div>
+
+            </div>
+
+
+            <div class="details-card">
+
+              <div class="detail">
+                <span>☑</span>
+                <div>
+                  <small>Product Name</small>
+                  <b>Nature Crisps</b>
+                </div>
+                <i>✓</i>
+              </div>
+
+
+              <div class="detail">
+                <span>▣</span>
+                <div>
+                  <small>Net Quantity</small>
+                  <b>60 g</b>
+                </div>
+                <i>✓</i>
+              </div>
+
+
+              <div class="detail">
+                <span>₹</span>
+                <div>
+                  <small>MRP</small>
+                  <b>₹ 20.00</b>
+                </div>
+                <i>✓</i>
+              </div>
+
+
+              <div class="detail">
+                <span>▣</span>
+                <div>
+                  <small>Mfg. Date</small>
+                  <b>12/05/2026</b>
+                </div>
+                <i>✓</i>
+              </div>
+
+
+              <div class="detail">
+                <span>◷</span>
+                <div>
+                  <small>Best Before</small>
+                  <b>12/05/2027</b>
+                </div>
+                <i>✓</i>
+              </div>
+
+
+              <div class="detail">
+                <span>♙</span>
+                <div>
+                  <small>Manufacturer</small>
+                  <b>Green Foods Pvt. Ltd.</b>
+                </div>
+                <i>✓</i>
+              </div>
+
+
+              <div class="detail">
+                <span>☎</span>
+                <div>
+                  <small>Customer Care</small>
+                  <b>1800-123-4567</b>
+                </div>
+                <i>✓</i>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="status">
+            ✓ &nbsp; Overall Status: COMPLIANT
+          </div>
+
         </div>
+
       </div>
+
     </section>
+
+
+    <!-- ================================
+         REAL DYNAMIC STATS
+    ================================= -->
 
     <section class="stats">
-      <div><strong>10K+</strong><span>Products Scanned</span></div>
-      <div><strong>98.6%</strong><span>Detection Accuracy</span></div>
-      <div><strong>2.5K+</strong><span>Inspections Completed</span></div>
-      <div><strong>500+</strong><span>Active Inspectors</span></div>
+
+      <div>
+        <strong id="statInspections">0</strong>
+        <span>Inspections Completed</span>
+      </div>
+
+
+      <div>
+        <strong id="statTime">—</strong>
+        <span>Avg. Processing Time</span>
+      </div>
+
+
+      <div>
+        <strong id="statPassRate">—</strong>
+        <span>Compliance Pass Rate</span>
+      </div>
+
+
+      <div>
+        <strong id="statProducts">0</strong>
+        <span>Products Inspected</span>
+      </div>
+
     </section>
+
+
+    <!-- ================================
+         SCAN
+    ================================= -->
 
     <section id="scan" class="demo-section">
+
       <div class="section-heading">
-        <div class="eyebrow">TRY THE WORKFLOW</div>
-        <h2>Scan a product in seconds.</h2>
-        <p>This is a frontend prototype. Upload an image to simulate an inspection.</p>
+
+        <div class="eyebrow">
+          TRY THE WORKFLOW
+        </div>
+
+        <h2>
+          Scan a product in seconds.
+        </h2>
+
+        <p>
+          Upload or capture a product label and PackCheck will analyse
+          the visible declarations using AI vision.
+        </p>
+
       </div>
+
 
       <div class="upload-box" id="uploadBox">
-        <div class="upload-icon">⇧</div>
-        <h3>Upload Product Label</h3>
-        <p>PNG, JPG or WEBP • Drag & drop or choose an image</p>
-        <input id="fileInput" type="file" accept="image/*" hidden>
-        <button class="primary-btn" onclick="document.getElementById('fileInput').click()">Choose Image</button>
+
+        <div class="upload-icon">
+          ⇧
+        </div>
+
+        <h3>
+          Upload Product Label
+        </h3>
+
+        <p>
+          PNG, JPG or WEBP • Drag & drop, choose an image, or use camera
+        </p>
+
+
+        <input
+          id="fileInput"
+          type="file"
+          accept="image/*"
+          capture="environment"
+          hidden
+        >
+
+
+        <button
+          class="primary-btn"
+          onclick="document.getElementById('fileInput').click()"
+        >
+          Choose Image
+        </button>
+
+
         <div id="fileName" class="file-name"></div>
+
       </div>
 
-      <div id="mockResult" class="mock-result">
-        <div>
-          <span class="result-label">DEMO RESULT</span>
-          <h3>Potential compliance check complete</h3>
-          <p>OCR extracted the package information and the rules engine checked the configured declarations.</p>
-        </div>
-        <div class="result-pill">✓ COMPLIANT</div>
-      </div>
+
+      <!-- RESULT -->
+      <div id="mockResult" class="mock-result"></div>
+
     </section>
+
+
+    <!-- ================================
+         DASHBOARD
+    ================================= -->
 
     <section id="dashboard" class="simple-section">
+
       <div class="section-heading">
-        <div class="eyebrow">DASHBOARD</div>
-        <h2>Inspection overview</h2>
+
+        <div class="eyebrow">
+          DASHBOARD
+        </div>
+
+        <h2>
+          Inspection overview
+        </h2>
+
+        <p>
+          Live statistics based on your completed PackCheck inspections.
+        </p>
+
       </div>
+
+
       <div class="dashboard-grid">
-        <div class="dashboard-card"><span>Today's scans</span><strong>128</strong><small>↑ 12% this week</small></div>
-        <div class="dashboard-card"><span>Compliant</span><strong>104</strong><small>81.3% of today's scans</small></div>
-        <div class="dashboard-card"><span>Needs review</span><strong>24</strong><small>Requires inspector attention</small></div>
+
+        <div class="dashboard-card">
+
+          <span>
+            Today's scans
+          </span>
+
+          <strong id="dashboardToday">
+            0
+          </strong>
+
+          <small>
+            Inspections completed today
+          </small>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+          <span>
+            Compliant
+          </span>
+
+          <strong id="dashboardCompliant">
+            0
+          </strong>
+
+          <small>
+            Passed inspections
+          </small>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+          <span>
+            Needs review
+          </span>
+
+          <strong id="dashboardReview">
+            0
+          </strong>
+
+          <small>
+            Requires inspector attention
+          </small>
+
+        </div>
+
       </div>
+
     </section>
+
+
+    <!-- ================================
+         HISTORY
+    ================================= -->
 
     <section id="history" class="simple-section">
+
       <div class="section-heading">
-        <div class="eyebrow">HISTORY</div>
-        <h2>Recent inspections</h2>
+
+        <div class="eyebrow">
+          HISTORY
+        </div>
+
+        <h2>
+          Recent inspections
+        </h2>
+
+        <p>
+          Your completed PackCheck inspections appear here automatically.
+        </p>
+
       </div>
+
+
       <div class="table-card">
-        <div class="table-row table-head"><span>ID</span><span>Product</span><span>Date</span><span>Status</span></div>
-        <div class="table-row"><span>#1042</span><span>Nature Crisps</span><span>Today</span><b class="good">Compliant</b></div>
-        <div class="table-row"><span>#1041</span><span>ABC Rice</span><span>Today</span><b class="good">Compliant</b></div>
-        <div class="table-row"><span>#1040</span><span>Fresh Oil</span><span>Yesterday</span><b class="warn">Review</b></div>
+
+        <div class="table-row table-head">
+
+          <span>ID</span>
+          <span>Product</span>
+          <span>Date</span>
+          <span>Status</span>
+
+        </div>
+
+
+        <div id="historyList">
+
+          <div class="history-empty">
+
+            <div class="history-empty-icon">
+              ✓
+            </div>
+
+            <strong>
+              No inspections yet
+            </strong>
+
+            <span>
+              Scan a product and your inspection will appear here.
+            </span>
+
+          </div>
+
+        </div>
+
       </div>
+
     </section>
+
+
+    <!-- ================================
+         REPORTS
+    ================================= -->
 
     <section id="reports" class="simple-section">
+
       <div class="section-heading">
-        <div class="eyebrow">REPORTS</div>
-        <h2>Clear, inspection-ready reports.</h2>
-        <p>Generate structured reports from every product inspection.</p>
+
+        <div class="eyebrow">
+          REPORTS
+        </div>
+
+        <h2>
+          Clear, inspection-ready reports.
+        </h2>
+
+        <p>
+          Generate structured reports from every product inspection.
+        </p>
+
       </div>
+
     </section>
+
+
+    <!-- ================================
+         ABOUT
+    ================================= -->
 
     <section id="about" class="about-section">
+
       <div>
-        <div class="eyebrow">ABOUT PACKCHECK</div>
-        <h2>Technology that assists inspectors.</h2>
+
+        <div class="eyebrow">
+          ABOUT PACKCHECK
+        </div>
+
+        <h2>
+          Technology that assists inspectors.
+        </h2>
+
       </div>
+
+
       <p>
-        PackCheck is a student-built SIH prototype designed to demonstrate how
-        OCR, AI-assisted information extraction, and rule-based validation can
-        streamline packaged-commodity inspections.
+        PackCheck is a student-built SIH prototype designed to demonstrate
+        how AI vision and rule-based validation can streamline packaged
+        commodity inspections.
       </p>
+
     </section>
+
   </main>
 
+
+  <!-- ================================
+       LOGIN MODAL
+  ================================= -->
+
   <div id="loginModal" class="modal">
+
     <div class="modal-card">
-      <button class="close" onclick="closeLogin()">×</button>
-      <div class="eyebrow">INSPECTOR ACCESS</div>
-      <h2>Welcome back</h2>
-      <p>Demo login for the PackCheck prototype.</p>
+
+      <button
+        class="close"
+        onclick="closeLogin()"
+      >
+        ×
+      </button>
+
+      <div class="eyebrow">
+        INSPECTOR ACCESS
+      </div>
+
+      <h2>
+        Welcome back
+      </h2>
+
+      <p>
+        Demo login for the PackCheck prototype.
+      </p>
+
       <input placeholder="Inspector ID">
-      <input type="password" placeholder="Password">
-      <button class="primary-btn full" onclick="closeLogin()">Enter Dashboard</button>
+
+      <input
+        type="password"
+        placeholder="Password"
+      >
+
+      <button
+        class="primary-btn full"
+        onclick="closeLogin()"
+      >
+        Enter Dashboard
+      </button>
+
     </div>
+
   </div>
 
+
   <script src="script.js"></script>
+
 </body>
 </html>
