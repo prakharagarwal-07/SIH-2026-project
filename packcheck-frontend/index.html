@@ -356,6 +356,57 @@
         </p>
 
 
+        <div class="scale-panel">
+
+          <div class="scale-label">
+            Photographed face width
+            <span>needed for Rule 7 letter height (mm)</span>
+          </div>
+
+          <div class="scale-presets" id="scalePresets">
+            <button type="button" data-cm="6">Sachet 6 cm</button>
+            <button type="button" data-cm="8">Label 8 cm</button>
+            <button type="button" class="active" data-cm="12">Pouch 12 cm</button>
+            <button type="button" data-cm="18">Carton 18 cm</button>
+            <button type="button" data-cm="25">Box 25 cm</button>
+          </div>
+
+          <div class="scale-row">
+
+            <label>
+              Width (cm)
+              <input
+                id="faceWidthCm"
+                type="number"
+                min="1"
+                max="80"
+                step="0.5"
+                value="12"
+              >
+            </label>
+
+            <label>
+              Height (cm)
+              <input
+                id="faceHeightCm"
+                type="number"
+                min="0"
+                max="80"
+                step="0.5"
+                placeholder="auto"
+              >
+            </label>
+
+            <label class="scale-check">
+              <input id="moldedLetters" type="checkbox">
+              Blown / molded letters
+            </label>
+
+          </div>
+
+        </div>
+
+
         <input
           id="fileInput"
           type="file"
